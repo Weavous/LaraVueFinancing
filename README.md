@@ -132,3 +132,21 @@
 
     php artisan make:migration create_vehicles_table
 ```
+
+<h6 align="center">Factories</h6>
+
+```bash
+    php artisan make:factory VehicleFactory
+
+    php artisan make:factory FinancingFactory
+```
+
+<h6 align="center">Seeders</h6>
+
+```bash
+    php artisan make:seeder UserSeeder
+
+    php artisan make:seeder VehicleSeeder
+
+    php artisan make:seeder FinancingSeeder
+```
