@@ -98,3 +98,37 @@
 <h6 align="center">JWT Guide Link<a href="https://www.avyatech.com/rest-api-with-laravel-8-using-jwt-token">🔐</a></h6>
 
 <p align="center">Guide link to implement JSON Web Token (JWT) authentication</p>
+
+<h6 align="center">Resources</h6>
+
+```bash
+    php artisan make:resource FinancingResource
+
+    php artisan make:resource VehicleResource
+```
+
+<h6 align="center">Controllers</h6>
+
+```bash
+    php artisan make:controller AuthController
+
+    php artisan make:controller FinancingController --api
+
+    php artisan make:controller VehicleController --api
+```
+
+<h6 align="center">Models</h6>
+
+```bash
+    php artisan make:model Financing
+
+    php artisan make:model Hobby
+```
+
+<h6 align="center">Migrations</h6>
+
+```bash
+    php artisan make:migration create_financing_table
+
+    php artisan make:migration create_vehicles_table
+```
