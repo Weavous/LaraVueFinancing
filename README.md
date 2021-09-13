@@ -151,6 +151,40 @@
     php artisan make:seeder FinancingSeeder
 ```
 
+<h5 align="center">Noções básicas sobre a aplicação</h5>
+
+<h6 align="center">Authentication</h6>
+
+`POST` `/api/registers` criará um novo registro de usuário
+
+`POST` `/api/auth/login` retornará um token de autorização para um usuário previamente cadastrado no sistema
+
+`POST` `/api/auth/logout` encerrará o token de autorização previamente criado para um usuário autenticado
+
+`GET` `/api/auth/user` retornará os dados de cadastro de um usuário
+
+<h6 align="center">Vehicles</h6>
+
+| Method | Uri | Description | Code |
+| --- | --- | -- | -- |
+| GET | /api/v1/vehicles?page=n&paginate=n | Retorna todos os veículos | 200 |
+| GET  | /api/v1/vehicles/{id} | Display the specified vehicle | 200 / 404 |
+| POST | /api/v1/vehicles | Store a newly created vehicle in storage | 201 / 400 |
+| DELETE | /api/v1/vehicles/{id} | Remove the specified vehicle from storage | 204 / 400 |
+| PUT | /api/v1/vehicles/{id} | Update the specified vehicle in storage | 200 / 400 |
+
+<h6 align="center">Financing</h6>
+
+| Method | Uri | Description | Code |
+| --- | --- | -- | -- |
+| GET | /api/v1/financing?page=n&paginate=n | Get all financing | 200 |
+| GET  | /api/v1/financing/{id} | Display the specified financing | 200 / 404 |
+| POST | /api/v1/financing | Store a newly created financing in storage | 201 / 400 |
+| DELETE | /api/v1/financing/{id} | Remove the specified financing from storage | 204 / 400 |
+| PUT | /api/v1/financing/{id} | Update the specified financing in storage | 200 / 400 |
+
+<p align="center">4 folder structures to organize your React & React Native project <a href="https://reboot.studio/blog/folder-structures-to-organize-react-project">💾</a></p>
+
 <h6>⚠️ Atenção - Possívels Erros</h6>
 
 * A porta esperada para enviar as requisições é `8000`, se outra for estabelecida, alterar o conteúdo de `baseURL` em `frontend\src\services\http.js`.
