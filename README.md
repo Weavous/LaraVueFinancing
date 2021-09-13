@@ -122,7 +122,7 @@
 ```bash
     php artisan make:model Financing
 
-    php artisan make:model Hobby
+    php artisan make:model Vehicle
 ```
 
 <h6 align="center">Migrations</h6>
