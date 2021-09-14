@@ -112,7 +112,11 @@
 ```bash
     php artisan make:controller AuthController
 
+    php artisan make:controller BrandController --api
+
     php artisan make:controller FinancingController --api
+
+    php artisan make:controller TypeController --api
 
     php artisan make:controller VehicleController --api
 ```
@@ -120,7 +124,11 @@
 <h6 align="center">Models</h6>
 
 ```bash
+    php artisan make:model Brand
+
     php artisan make:model Financing
+
+    php artisan make:model Type
 
     php artisan make:model Vehicle
 ```
@@ -130,25 +138,166 @@
 ```bash
     php artisan make:migration create_financing_table
 
+    php artisan make:migration create_types_table
+
     php artisan make:migration create_vehicles_table
+
+    php artisan make:migration create_brands_table
 ```
 
 <h6 align="center">Factories</h6>
 
 ```bash
-    php artisan make:factory VehicleFactory
-
     php artisan make:factory FinancingFactory
+
+    php artisan make:factory VehicleFactory
 ```
 
 <h6 align="center">Seeders</h6>
 
 ```bash
+    php artisan make:seeder FinancingSeeder
+
+    php artisan make:seeder TypeSeeder
+
     php artisan make:seeder UserSeeder
 
     php artisan make:seeder VehicleSeeder
 
-    php artisan make:seeder FinancingSeeder
+    php artisan make:seeder BrandSeeder
+```
+
+<h6 align="center">JWT</h6>
+
+```bash
+    composer require tymon/jwt-auth
+
+    php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+    php artisan jwt:secret
+
+    php artisan make:middleware JwtMiddleware
+```
+
+<h6 align="center">Tests</h6>
+
+```bash
+    php artisan make:test JWTAuthTest
+
+    php artisan make:test FinancingControllerTest
+```
+
+<span>Edit `server\phpunit.xml`, setting `DB_CONNECTION` and `DB_DATABASE` values</span>
+
+<h6 align="center">Launch 🚀</h6>
+
+```bash
+    git clone https://github.com/Weavous/LaraVueFinancing
+```
+
+```bash
+    cd LaraVueFinancing
+```
+
+<h6 align="center">Set up Application 🚀</h6>
+
+```bash
+    cd server
+```
+
+```bash
+    cp .env.example .env
+```
+
+<p align="center">You must specify the environment configuration in <em>.env</em> file</p>
+
+```bash
+    composer i
+```
+
+```bash
+    php artisan key:generate
+```
+
+```bash
+    php artisan migrate:fresh --seed
+```
+
+```bash
+    php artisan jwt:secret
+```
+
+```bash
+    php artisan serve
+```
+
+<h6 align="center">Set up Front-end 🚀</h6>
+
+```bash
+    vue init webpack-simple frontend
+```
+
+```bash
+    cd frontend
+```
+
+```bash
+    npm install
+```
+
+```bash
+    npm run dev
+```
+
+```bash
+    npm	install	axios --save
+```
+
+```bash
+    npm install vue-router --save
+```
+
+<h6 align="center">Run with Docker</h6>
+
+After doing the project setup, follow the steps.
+
+Clone the repository https://github.com/Whopag/DockerPHPMySQL
+
+Copy the contents of `LaraVueFinancing/server` to `DockerPHPMySQL/html`
+
+Inside `DockerPHPMySQL`, build an image of the project
+
+```bash
+    docker-compose up -d --build
+```
+
+Change the content of the following environment variables
+
+```bash
+    DB_HOST=dockerphpmysql_mysql_1
+    DB_PASSWORD=secret
+    DB_DATABASE=laravel
+```
+
+Run Laravel migrations
+
+```bash
+    docker-compose run --rm artisan migrate --seed
+```
+
+Create an Laravel application key
+
+```bash
+    docker-compose run --rm artisan key:generate
+```
+
+<h6 align="center">Testing User</h6>
+
+```typescript
+    return {
+        email: "johndoe@example.com",
+        password: "secret"
+    }
 ```
 
 <h5 align="center">Noções básicas sobre a aplicação</h5>
