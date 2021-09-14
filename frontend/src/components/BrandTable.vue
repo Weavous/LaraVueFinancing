@@ -2,7 +2,7 @@
   <div class="overflow-x-auto">
     <div class="flex justify-center font-sans overflow-hidden">
       <div class="w-full">
-        <div class="bg-white shadow-md rounded overflow-scroll h-96">
+        <div class="bg-white shadow-md rounded overflow-scroll h-160">
           <table class="min-w-max w-full table-auto">
             <thead>
               <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
@@ -97,3 +97,9 @@ export default {
   }
 };
 </script>
+
+<style>
+  .h-160 {
+    height: 40rem;
+  }
+</style>
