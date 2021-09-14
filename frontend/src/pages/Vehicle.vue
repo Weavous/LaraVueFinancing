@@ -1,23 +1,16 @@
 <template>
   <Main>
-    <Display></Display>
+    <VehicleTable></VehicleTable>
   </Main>
 </template>
 
 <script>
 import Main from "../components/Main.vue";
 
-import Display from "../components/Display.vue";
-
-import vehicles from "../services/brands.js";
+import VehicleTable from "../components/VehicleTable.vue";
 
 export default {
-  name: "Financing",
-  components: { Main, Display },
-  mounted() {
-    vehicles.index().then((response) => {
-      console.log(response.data);
-    });
-  },
+  name: "Vehicle",
+  components: { Main, VehicleTable },
 };
 </script>
