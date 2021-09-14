@@ -3,6 +3,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\FinancingController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\TypeController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(["prefix" => "v1"], function () {
+    Route::resource("financing", FinancingController::class);
+    Route::resource("vehicles", VehicleController::class);
+    Route::resource("brands", BrandController::class);
+    Route::resource("types", TypeController::class);
 });

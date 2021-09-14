@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Financing;
+use App\Models\Brand;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class FinancingController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class FinancingController extends Controller
      */
     public function index(): JsonResponse
     {
-        return response()->json(Financing::all());
+        return response()->json(Brand::all());
     }
 
     /**
@@ -27,7 +27,6 @@ class FinancingController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -38,9 +37,9 @@ class FinancingController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $resource = Financing::find($id);
+        $resource = Brand::find($id);
 
-        if ($resource instanceof Financing) {
+        if ($resource instanceof Brand) {
             return response()->json($resource);
         }
 
@@ -67,9 +66,9 @@ class FinancingController extends Controller
      */
     public function destroy($id): JsonResponse
     {
-        $resource = Financing::find($id);
+        $resource = Brand::find($id);
 
-        if ($resource instanceof Financing) {
+        if ($resource instanceof Brand) {
             $resource->delete();
 
             return response()->json([], 204);

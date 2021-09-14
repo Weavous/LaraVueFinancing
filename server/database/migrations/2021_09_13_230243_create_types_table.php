@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFinancingTable extends Migration
+class CreateTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateFinancingTable extends Migration
      */
     public function up()
     {
-        Schema::create('financing', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger("quantity");
+            $table->string("name", 32);
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateFinancingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('financing');
+        Schema::dropIfExists('types');
     }
 }

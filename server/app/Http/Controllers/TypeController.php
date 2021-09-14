@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Financing;
+use App\Models\Type;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class FinancingController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class FinancingController extends Controller
      */
     public function index(): JsonResponse
     {
-        return response()->json(Financing::all());
+        return response()->json(Type::all());
     }
 
     /**
@@ -38,9 +38,9 @@ class FinancingController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $resource = Financing::find($id);
+        $resource = Type::find($id);
 
-        if ($resource instanceof Financing) {
+        if ($resource instanceof Type) {
             return response()->json($resource);
         }
 
@@ -67,9 +67,9 @@ class FinancingController extends Controller
      */
     public function destroy($id): JsonResponse
     {
-        $resource = Financing::find($id);
+        $resource = Type::find($id);
 
-        if ($resource instanceof Financing) {
+        if ($resource instanceof Type) {
             $resource->delete();
 
             return response()->json([], 204);

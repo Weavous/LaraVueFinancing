@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use App\Models\Type;
+use App\Models\Brand;
+
 class CreateVehiclesTable extends Migration
 {
     /**
@@ -15,7 +18,12 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 32);
+            $table->unsignedInteger('amount');
             $table->timestamps();
+
+            $table->foreignIdFor(Type::class);
+            $table->foreignIdFor(Brand::class);
         });
     }
 
