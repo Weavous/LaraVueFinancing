@@ -8,7 +8,7 @@
               <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                 <th class="py-3 px-6 text-left">Code</th>
                 <th class="py-3 px-6 text-left">Name</th>
-                <th class="py-3 px-6 text-left">Amount</th>
+                <th class="py-3 px-6 text-left">Price</th>
                 <th class="py-3 px-6 text-left">Brand</th>
                 <th class="py-3 px-6 text-left">Type</th>
                 <th class="py-3 px-6 text-left">Created</th>
@@ -30,7 +30,7 @@
                 </td>
                 <td class="py-3 px-6 text-left">
                   <div class="flex items-left">
-                    <span>{{ vehicle.amount }}</span>
+                    <span>{{ vehicle.price }}</span>
                   </div>
                 </td>
                 <td class="py-3 px-6 text-left">
