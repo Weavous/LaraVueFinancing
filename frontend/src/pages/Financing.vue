@@ -22,13 +22,23 @@
         </div>
 
         <div class="mb-5">
-          <label class="block text-gray-700"> Valor de entrada </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Price">
+          <div>
+            <label class="block text-gray-700"> Valor de entrada </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" v-model="price" v-money="money">
+          </div>
         </div>
 
         <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" @click="getConditions()">
           Simular
         </button>
+
+        <div class="mb-5">
+          <span class="text-gray-700">Planos</span>
+        </div>
+
+        <div class="mb-5">
+          <p v-for="(plan, key) in plans" :key="key">{{ plan.text }}</p>
+        </div>
       </div>
     </div>
   </Main>
@@ -39,6 +49,8 @@ import Main from "../components/Main.vue";
 
 import vehicles from "../services/vehicles.js";
 
+import { VMoney } from "v-money";
+
 export default {
   name: "Financing",
   components: { Main },
@@ -46,41 +58,76 @@ export default {
     return {
       vehicles: {
         name,
-        price: "0,00",
+        price: 0,
         object: {},
         data: []
       },
       financing: {
-        id: 0,
+        id: 0
       },
+      plans: [],
+      payment: 0,
+      price: 0.0,
+      money: {
+        decimal: ",",
+        thousands: ".",
+        prefix: "R$ ",
+        precision: 2,
+        masked: false
+      }
     };
   },
+  directives: { money: VMoney },
   methods: {
     getConditions() {
-      console.log(`vehicle::id => ${this.vehicle.id}`);
-      console.log(`financing::id => ${this.financing.id}`);
+      const vehicle = this.vehicles.object;
+      const entry = this.price.replace(/\D+/g, "") / 100;
+
+      if (typeof vehicle === typeof {}) {
+        const price = vehicle.price / 1000;
+        const models = [
+          { id: 1, quantity: 48 },
+          { id: 1, quantity: 12 },
+          { id: 1, quantity: 6 }
+        ];
+
+        const plans = models.map((model, key) => {
+          const money = this.toMoney((price - entry) / model.quantity);
+
+          return {
+            id: key,
+            price: this.toMoney(price),
+            quantity: model.quantity,
+            parcel: money,
+            text: `${model.quantity}x de ${money}`
+          };
+        });
+
+        this.plans = plans;
+      }
     },
     changePrice() {
-      const vehicle = this.vehicles.find(vehicle => vehicle.name === this.vehicles.name);
+      const vehicle = this.vehicles.find(
+        vehicle => vehicle.name === this.vehicles.name
+      );
 
-      this.setVehicle(vehicle);
-    },
-    setVehicle(vehicle) {
       if (typeof undefined === typeof vehicle) {
         return false;
       }
 
-      this.setPrice(vehicle.price);
-
       this.vehicles.object = vehicle;
-
+      this.vehicles.price = this.toMoney(vehicle.price);
     },
-    setPrice(price) {
-      this.vehicles.price = price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');;
+    toMoney(money) {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        currencyDisplay: "narrowSymbol"
+      }).format(money);
     }
   },
-  mounted() {
-    vehicles.index().then(response =>  {
+  created() {
+    vehicles.index().then(response => {
       this.vehicles = response.data;
     });
   }
