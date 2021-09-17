@@ -81,7 +81,7 @@
 <h6 align="center">Storage</h6>
 
 ```sql
-    CREATE DATABASE custom_development_financing;
+    CREATE DATABASE custom_development_financing_v1;
 ```
 
 <p align="center">Next, add the following database configuration information</p>
