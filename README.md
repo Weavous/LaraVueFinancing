@@ -257,6 +257,10 @@
     npm install vue-router --save
 ```
 
+```bash
+    npm install v-money --save
+```
+
 <h6 align="center">Run with Docker</h6>
 
 After doing the project setup, follow the steps.
