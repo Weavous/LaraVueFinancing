@@ -74,7 +74,7 @@ class VehicleSeeder extends Seeder
         foreach ($this->data as $vehicle) {
             Vehicle::create([
                 'name' => $vehicle,
-                'amount' => rand(9999999, 99999999),
+                'price' => rand(9999999, 99999999),
                 'type_id' => rand(1, count($types)),
                 'brand_id' => rand(1, count($brands))
             ]);

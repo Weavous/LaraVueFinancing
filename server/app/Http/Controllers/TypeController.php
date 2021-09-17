@@ -7,6 +7,8 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
+use Illuminate\Support\Facades\Validator;
+
 class TypeController extends Controller
 {
     /**
@@ -25,9 +27,19 @@ class TypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        //
+        $validator = $this->validator($request);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
+        }
+
+        $resource = Type::create(
+            $validator->safe()->only(['name'])
+        );
+
+        return response()->json($resource, 201);
     }
 
     /**
@@ -76,5 +88,16 @@ class TypeController extends Controller
         }
 
         return response()->json([], 400);
+    }
+
+    private function validator(Request $request): \Illuminate\Validation\Validator
+    {
+        $only = $request->only('name');
+
+        $validator = Validator::make($only, [
+            'name' => 'required|regex:/^[A-Za-z\s]*$/i',
+        ]);
+
+        return $validator;
     }
 }

@@ -19,7 +19,7 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->string('name', 32);
-            $table->unsignedInteger('amount');
+            $table->unsignedInteger('price');
             $table->timestamps();
 
             $table->foreignIdFor(Type::class);

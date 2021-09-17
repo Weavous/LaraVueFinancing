@@ -31,7 +31,7 @@ class VehicleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $validator = $this->validator($request);
 
@@ -40,7 +40,7 @@ class VehicleController extends Controller
         }
 
         $resource = Vehicle::create(
-            $validator->safe()->only(['name', 'amount', 'brand_id', 'type_id'])
+            $validator->safe()->only(['name', 'price', 'brand_id', 'type_id'])
         );
 
         return response()->json(new VehicleResource($resource), 201);
@@ -87,7 +87,7 @@ class VehicleController extends Controller
         }
 
         $resource->update(
-            $validator->safe()->only(['name', 'amount', 'brand_id', 'type_id'])
+            $validator->safe()->only(['name', 'price', 'brand_id', 'type_id'])
         );
 
         return response()->json(new VehicleResource($resource), 200);
@@ -114,11 +114,11 @@ class VehicleController extends Controller
 
     private function validator(Request $request): \Illuminate\Validation\Validator
     {
-        $only = $request->only('name', 'amount', 'brand_id', 'type_id');
+        $only = $request->only('name', 'price', 'brand_id', 'type_id');
 
         $validator = Validator::make($only, [
             'name' => 'required|regex:/^[A-Za-z\s]*$/i',
-            'amount' => 'required|int',
+            'price' => 'required|int',
             'type_id' => 'required|exists:types,id',
             'brand_id' => 'required|exists:brands,id'
         ]);

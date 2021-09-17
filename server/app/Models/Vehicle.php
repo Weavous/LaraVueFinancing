@@ -21,7 +21,7 @@ class Vehicle extends Model
      */
     protected $fillable = [
         'name',
-        'amount',
+        'price',
         'brand_id',
         'type_id',
     ];
