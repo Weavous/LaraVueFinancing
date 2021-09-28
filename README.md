@@ -228,10 +228,10 @@
 ```
 
 ```bash
-    php artisan serve
+    php artisan serve --host 0.0.0.0 --port 8888
 ```
 
-<h6 align="center">Set up Front-end 🚀</h6>
+<h6 align="center">Set up Front-end</h6>
 
 ```bash
     vue init webpack-simple frontend
