@@ -14,7 +14,7 @@
 
 <p align="center">Development of an application to simulating vehicles financing</p>
 
-<h4 align="center">Instructions <a href="https://gitlab.com/felipe.furtuoso538/pontential-crud">🔗</a></h4>
+<h4 align="center">Instructions <a href="https://gitlab.com/felipe.furtuoso538/pontential-crud">😋</a></h4>
 
 <p align="center">Instructions for developing the application can be found in the icon above.</p>
 
@@ -23,10 +23,10 @@
 <h6 align="center"><a href="https://iconscout.com">✔️</a> Requirements</h6>
 
 <p align="center">
-    <a href="https://www.php.net"><img width="10%" src="https://cdn.iconscout.com/icon/free/png-256/php-3629567-3032350.png" alt="PHP Logo"></a>
+    <a href="https://www.php.net"><img width="10%" src="https://raw.githubusercontent.com/MagicalStrangeQuark/MagicalStrangeQuark/master/assets/php.svg" alt="PHP Logo"></a>
     <a href="https://laravel.com"><img width="10%" src="https://cdn.iconscout.com/icon/free/png-256/laravel-2038872-1720085.png" alt="Laravel Logo"></a>
     <a href="https://www.mysql.com"><img width="10%" src="https://cdn.iconscout.com/icon/free/png-256/mysql-3628940-3030165.png" alt="MySQL Logo"></a>
-    <a href="https://git-scm.com"><img width="10%" src="https://cdn.iconscout.com/icon/free/png-256/git-16-1175195.png" alt="Git Logo"></a>
+    <a href="https://git-scm.com"><img width="10%" src="https://raw.githubusercontent.com/MagicalStrangeQuark/MagicalStrangeQuark/master/assets/git.svg" alt="Git Logo"></a>
     <a href="https://getcomposer.org"><img width="10%" src="https://cdn.iconscout.com/icon/free/png-256/composer-285363.png" alt="Composer Logo"></a>
     <a href="https://www.docker.com"><img width="10%" src="https://cdn.iconscout.com/icon/free/png-256/docker-10-1175197.png" alt="Docker Logo"></a>
 </p>
@@ -37,7 +37,7 @@
             dependency: "PHP",
             url: "https://www.php.net",
             version: 7.4.21,
-            img: "https://cdn.iconscout.com/icon/free/png-256/php-3629567-3032350.png"
+            img: "https://raw.githubusercontent.com/MagicalStrangeQuark/MagicalStrangeQuark/master/assets/php.svg"
         },
         {
             dependency: "Laravel",
@@ -55,7 +55,7 @@
             dependency: "Git",
             url: "https://git-scm.com",
             version:  2.32.0,
-            img: "https://cdn.iconscout.com/icon/free/png-256/git-16-1175195.png"
+            img: "https://raw.githubusercontent.com/MagicalStrangeQuark/MagicalStrangeQuark/master/assets/git.svg"
         },
         {
             dependency: "Composer",
@@ -94,10 +94,6 @@
     DB_USERNAME=<database-username>
     DB_PASSWORD=<database-password>
 ```
-
-<h6 align="center">JWT Guide Link<a href="https://www.avyatech.com/rest-api-with-laravel-8-using-jwt-token">🔐</a></h6>
-
-<p align="center">Guide link to implement JSON Web Token (JWT) authentication</p>
 
 <h6 align="center">Resources</h6>
 
@@ -167,29 +163,15 @@
     php artisan make:seeder BrandSeeder
 ```
 
-<h6 align="center">JWT</h6>
-
-```bash
-    composer require tymon/jwt-auth
-
-    php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
-
-    php artisan jwt:secret
-
-    php artisan make:middleware JwtMiddleware
-```
-
 <h6 align="center">Tests</h6>
 
 ```bash
-    php artisan make:test JWTAuthTest
-
     php artisan make:test FinancingControllerTest
 ```
 
 <span>Edit `server\phpunit.xml`, setting `DB_CONNECTION` and `DB_DATABASE` values</span>
 
-<h6 align="center">Launch 🚀</h6>
+<h6 align="center">Launch</h6>
 
 ```bash
     git clone https://github.com/Weavous/LaraVueFinancing
@@ -199,7 +181,7 @@
     cd LaraVueFinancing
 ```
 
-<h6 align="center">Set up Application 🚀</h6>
+<h6 align="center">Set up Application</h6>
 
 ```bash
     cd server
@@ -340,13 +322,7 @@ Create an Laravel application key
 
 <h6>⚠️ Atenção - Possívels Erros</h6>
 
-* A porta esperada para enviar as requisições é `8000`, se outra for estabelecida, alterar o conteúdo de `baseURL` em `frontend\src\services\http.js`.
-
-* Caso ocorra algum erro na instalação das dependências do `Laravel` através do `Composer`, deve-se habilitar as extensões presentes no arquivo de configuração `php.ini`.
-
-* O local do arquivo de configuração `php.ini` pode ser visualizado digitando-se `php --ini` no terminal.
-
-* Caso ocorra um erro relacionado ao certificado SSL ao efetuar as requisições para o serviço externo, retornando uma mensagem de erro semelhante à essa `cURL error 60: SSL certificate problem: unable to get local issuer certificate`, pode-se resolver através da resposta presente em `https://stackoverflow.com/questions/24611640/curl-60-ssl-certificate-problem-unable-to-get-local-issuer-certificate`
+<a href="https://github.com/MagicalStrangeQuark/MagicalStrangeQuark/blob/master/guides/FAQ.md">Link</a>
 
 <h6>Dúvidas ❔</h6>
 
